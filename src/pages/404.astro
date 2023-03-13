@@ -1,0 +1,27 @@
+---
+import Link from '../components/link.astro';
+import MainLayout from '../layouts/main-layout.astro';
+import { SIDE, STYLE } from '../types';
+---
+
+<MainLayout title='Page Not Found'>
+  <div
+    class='container'
+    style={{
+      display: 'grid',
+      placeItems: 'center',
+      textAlign: 'center',
+      gap: 'var(--space-sm)',
+    }}>
+    <div>
+      <h1 class='h1'>Whoops, this is awkward!</h1>
+      <p>We've seemed to have misplaced something...</p>
+    </div>
+    <Link
+      href='/'
+      style={STYLE.SECONDARY}
+      text='Return Home'
+      icon={{ name: 'tabler:home', side: SIDE.RIGHT }}
+    />
+  </div>
+</MainLayout>

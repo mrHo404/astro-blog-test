@@ -1,0 +1,32 @@
+---
+import Link from '../components/link.astro';
+import MainLayout from '../layouts/main-layout.astro';
+import { STYLE } from '../types';
+---
+
+<MainLayout title='About' description='about'>
+  <section class='container about' aria-label='About Me'>
+    <img
+      src='/images/headshot.jpg'
+      alt='My Headshot'
+      width='200'
+      height='330'
+    />
+    <div class='content'>
+      <h1 class='h1'>My Blog</h1>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui minima
+        harum eveniet, ea voluptatem quas voluptatum expedita porro pariatur
+        veritatis dicta repellendus ducimus, quo architecto sapiente, cum
+        doloribus. Quidem ipsam ipsa eaque praesentium. Fugit ut doloremque
+        perferendis minima quis odit veritatis ex deserunt deleniti veniam at,
+        neque voluptatibus expedita omnis.
+      </p>
+      <Link
+        href='mailto:max.musterman@mail.de'
+        style={STYLE.PRIMARY}
+        text='Contact Me'
+      />
+    </div>
+  </section>
+</MainLayout>
