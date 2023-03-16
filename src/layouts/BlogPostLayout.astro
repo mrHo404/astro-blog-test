@@ -1,0 +1,19 @@
+---
+import PostHead from '../components/post-head.astro';
+import type { BlogPost } from '../types';
+import MainLayout from './main-layout.astro';
+
+const blogPost = Astro.props.frontmatter as BlogPost;
+
+const { title, description } = blogPost;
+---
+
+<MainLayout title={title} description={description}>
+  <PostHead blogPost={blogPost} />
+  <div class='post-content'>
+    <div class='content'>
+      <slot />
+    </div>
+    <div class='sidebar'></div>
+  </div>
+</MainLayout>

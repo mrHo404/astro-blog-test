@@ -1,4 +1,5 @@
 ---
+import { Image } from '@astrojs/image/components';
 import Link from '../components/link.astro';
 import MainLayout from '../layouts/main-layout.astro';
 import { STYLE } from '../types';
@@ -6,11 +7,12 @@ import { STYLE } from '../types';
 
 <MainLayout title='About' description='about'>
   <section class='container about' aria-label='About Me'>
-    <img
+    <Image
       src='/images/headshot.jpg'
       alt='My Headshot'
-      width='200'
-      height='330'
+      width={250}
+      height={325}
+      format={'avif'}
     />
     <div class='content'>
       <h1 class='h1'>My Blog</h1>
