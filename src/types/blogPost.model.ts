@@ -1,4 +1,5 @@
 export type BlogPost = {
+  layout: string;
   title: string;
   description: string;
   date: string;

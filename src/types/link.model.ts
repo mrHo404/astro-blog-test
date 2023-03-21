@@ -9,6 +9,7 @@ export type LinkProps = {
   isFilled?: boolean;
   borderVisible?: boolean;
   classes?: string;
+  // rest: unknown; // TODO: type for rest
 };
 
 export const SIDE = {
@@ -21,4 +22,6 @@ export const STYLE = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
 } as const;
-export type Style = keyof typeof STYLE;
+export type Style = ObjectValues<typeof STYLE>;
+
+type ObjectValues<T> = T[keyof T];

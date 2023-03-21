@@ -2,6 +2,8 @@
 import { Icon } from 'astro-icon';
 import type { LinkProps } from '../types';
 
+interface Props extends LinkProps {}
+
 const {
   text,
   href,
@@ -11,7 +13,7 @@ const {
   borderVisible = false,
   classes,
   ...rest
-} = Astro.props as LinkProps;
+} = Astro.props as Props;
 ---
 
 <a

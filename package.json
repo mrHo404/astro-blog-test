@@ -19,5 +19,8 @@
     "postcss": "^8.4.21",
     "postcss-preset-env": "^8.0.1",
     "sharp": "^0.31.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28"
   }
 }
