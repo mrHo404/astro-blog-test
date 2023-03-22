@@ -6,6 +6,7 @@ export type BlogPost = {
   category: string;
   author: string;
   image: Image;
+  draft: boolean;
 };
 
 type Image = {
