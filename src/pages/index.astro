@@ -1,7 +1,53 @@
 ---
+import { Image } from '@astrojs/image/components';
+import type { BlogPost } from '@types';
+import { STYLE } from '@types';
+import { formatBlogPosts } from '@utils';
+import Link from '../components/link.astro';
+import PostCard from '../components/post-card.astro';
 import MainLayout from '../layouts/main-layout.astro';
+
+const filteredPosts = formatBlogPosts(await Astro.glob('./blog/*.md'),{limit:3});
 ---
 
 <MainLayout title='Main' description='main'>
-  <p>Main</p>
+  <section class='container about' aria-label='About Me'>
+    <Image
+      src='/images/headshot.jpg'
+      alt='My Headshot'
+      width={250}
+      height={325}
+      format={'avif'}
+    />
+    <div class='content'>
+      <h1 class='h1'>My Blog</h1>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui minima
+        harum eveniet, ea voluptatem quas voluptatum expedita porro pariatur
+        veritatis dicta repellendus ducimus, quo architecto sapiente, cum
+        doloribus.
+      </p>
+      <Link
+        href='/about'
+        style={STYLE.SECONDARY}
+        isFilled={false}
+        borderVisible={true}
+        text='About Me'
+      />
+    </div>
+  </section>
+  <section class='container' aria-label='New Blog Posts'>
+    <h2 class='h1'>New Blog Posts</h2>
+    <div class='post-container'>
+      {
+       filteredPosts.map((post) => (
+          <PostCard
+            blogPost={post.frontmatter as BlogPost} // TODO: no casting typeGuard?
+            url={post.url}
+            tagType='h3'
+          />
+        ))
+      }
+    </div>
+  </section>
 </MainLayout>
